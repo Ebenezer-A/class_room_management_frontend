@@ -1,3 +1,4 @@
+import 'package:class_room_management_frontend/course.dart';
 import 'package:class_room_management_frontend/department.dart';
 import 'package:class_room_management_frontend/instractuor.dart';
 import 'package:class_room_management_frontend/loginpage.dart';
