@@ -54,6 +54,8 @@ class _CourseDetailState extends State<CourseDetail> {
 
  @override
 Widget build(BuildContext context) {
+  final screenWidth = MediaQuery.of(context).size.width;
+  final screenHeight = MediaQuery.of(context).size.height;
   return Scaffold(
     backgroundColor: Colors.white, // Entire body background color
     body: Center(
@@ -70,14 +72,18 @@ Widget build(BuildContext context) {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'Course', // Text to be displayed
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
-                      color: Color(0xFF6B4EFF), // Set text color here
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w600,
+                  Container(
+                    child: Text(
+                      'Course', // Text to be displayed
+                      style: Theme.of(context).textTheme.headline6!.copyWith(
+                        color: Color(0xFF6B4EFF), // Set text color here
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
+                
                   ),
+                  
                  
                 ],
               ),
@@ -126,32 +132,53 @@ Widget build(BuildContext context) {
                   });
                 },
               ),
-              SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      // Implement Course Detail functionality
-                    },
-                    child: Text('Save'),
-                  ),
-                   ElevatedButton(
-                    onPressed: _isDropdownValid()
-                        ? () {
-                            _showCourseInputDialog(context);
-                          }
-                        : null,
+               SizedBox(height: 20.0),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  onPressed: _isDropdownValid()
+                      ? () {
+                          _showCourseInputDialog(context);
+                        }
+                      : null,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
                     child: Text('Course Detail'),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Implement cancel functionality
-                    },
-                    child: Text('Cancel'),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    minimumSize: Size(100, 36),
                   ),
-                ],
+                ),
               ),
+              if (screenWidth <= 393 && screenHeight <= 667) // Render buttons conditionally based on screen size
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // Implement Course Detail functionality
+                      },
+                      child: Text('Save'),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        minimumSize: Size(100, 36),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Implement cancel functionality
+                      },
+                      child: Text('Cancel'),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        minimumSize: Size(100, 36),
+                      ),
+                    ),
+                  ],
+                ),
             ],
           ),
         ),
@@ -264,14 +291,17 @@ Widget build(BuildContext context) {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(
-            'Enter Course Details',
-            style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                  color: Color(0xFF6B4EFF), // Label text color
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18, // Label font family
-                ),
+          title: Padding(
+            padding: const EdgeInsets.only(bottom: 10.0),
+            child: Text(
+              'Enter Course Details',
+              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    color: Color(0xFF6B4EFF), // Label text color
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18, // Label font family
+                  ),
+            ),
           ),
           content: SingleChildScrollView(
             child: Column(
@@ -284,6 +314,7 @@ Widget build(BuildContext context) {
                     label: 'Course title',
                     hint: 'Enter course title',
                     onChanged: (value) => courseTitle = value),
+                    
                 _buildInputField(
                     label: 'Credit Hour',
                     hint: 'Enter credit hour',
@@ -347,22 +378,40 @@ Widget build(BuildContext context) {
     );
   }
 
-  Widget _buildInputField(
-      {required String label,
-      required String hint,
-      required ValueChanged<String?> onChanged}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: TextField(
-        onChanged: onChanged,
-        decoration: InputDecoration(
-          labelText: label,
-          hintText: hint,
-          border: OutlineInputBorder(),
-          hintStyle: Theme.of(context).textTheme.subtitle1,
+ Widget _buildInputField(
+  {required String label,
+  required String hint,
+  required ValueChanged<String?> onChanged}) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 20.0),
+    child: TextField(
+      onChanged: onChanged,
+      decoration: InputDecoration(
+        labelText: label,
+        hintText: hint,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0), // Default border radius
         ),
-        style: Theme.of(context).textTheme.subtitle1,
+        hintStyle: TextStyle(
+          color: Colors.grey, // Adjust hint text color here
+        ),
+        labelStyle: TextStyle(
+          color: Color(0xFF6B4EFF), // Adjust label text color here
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black), // Adjust focused border color here
+          borderRadius: BorderRadius.circular(14.0), // Default border radius
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey), // Adjust enabled border color here
+          borderRadius: BorderRadius.circular(13.0), // Default border radius
+        ),
       ),
-    );
-  }
+      style: TextStyle(
+        color: Colors.black, // Adjust text color here
+      ),
+    ),
+  );
+}
+
 }

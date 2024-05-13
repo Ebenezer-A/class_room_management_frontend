@@ -35,7 +35,7 @@ class _DepartmentState extends State<Department> {
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),
           ),
-          color: Color(0xFF202325),
+          color: Colors.transparent,
           child: Padding(
             padding:
                 const EdgeInsets.only(top: 24, bottom: 16, left: 24, right: 24),
@@ -46,9 +46,9 @@ class _DepartmentState extends State<Department> {
                 Text(
                   'Add Department',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFF6B4EFF),
                     fontSize: 24,
-                    fontFamily: 'Inter',
+                    fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w700,
                     height: 1.0,
                   ),
@@ -57,7 +57,7 @@ class _DepartmentState extends State<Department> {
                 Container(
                   width: double.infinity,
                   height: 5,
-                  decoration: BoxDecoration(color: Color(0xFF2D3032)),
+                  decoration: BoxDecoration(color: Color.fromARGB(255, 165, 171, 177)),
                 ),
                 SizedBox(height: 16),
                 Column(
@@ -66,10 +66,11 @@ class _DepartmentState extends State<Department> {
                     Text(
                       'Department Id',
                       style: TextStyle(
-                        color: Colors.white,
+                        color:Color(0xFF6B4EFF),
                         fontSize: 16,
-                        fontFamily: 'Public Sans',
+                        fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
+                        
                       ),
                     ),
                     SizedBox(height: 8),
@@ -77,9 +78,9 @@ class _DepartmentState extends State<Department> {
                       decoration: InputDecoration(
                         hintText: 'Enter Department Id',
                         hintStyle: TextStyle(
-                          color: Colors.white70,
+                          color: const Color.fromARGB(179, 73, 73, 73),
                           fontSize: 16,
-                          fontFamily: 'Inter',
+                          fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w400,
                         ),
                         border: OutlineInputBorder(
@@ -103,9 +104,9 @@ class _DepartmentState extends State<Department> {
                     Text(
                       'Department Code',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF6B4EFF),
                         fontSize: 16,
-                        fontFamily: 'Public Sans',
+                        fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -114,9 +115,9 @@ class _DepartmentState extends State<Department> {
                       decoration: InputDecoration(
                         hintText: 'Enter Department Code',
                         hintStyle: TextStyle(
-                          color: Colors.white70,
+                          color: const Color.fromARGB(179, 73, 73, 73),
                           fontSize: 16,
-                          fontFamily: 'Inter',
+                          fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w400,
                         ),
                         border: OutlineInputBorder(
@@ -140,9 +141,9 @@ class _DepartmentState extends State<Department> {
                     Text(
                       'Department Name',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF6B4EFF),
                         fontSize: 16,
-                        fontFamily: 'Public Sans',
+                        fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -151,10 +152,11 @@ class _DepartmentState extends State<Department> {
                       decoration: InputDecoration(
                         hintText: 'Enter Department Name',
                         hintStyle: TextStyle(
-                          color: Colors.white70,
+                          color: const Color.fromARGB(179, 73, 73, 73),
                           fontSize: 16,
-                          fontFamily: 'Inter',
+                          fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w400,
+                          
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
@@ -183,7 +185,7 @@ class _DepartmentState extends State<Department> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
-                          fontFamily: 'Inter',
+                          fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -206,7 +208,7 @@ class _DepartmentState extends State<Department> {
                         style: TextStyle(
                           color: Color(0xFF6A4DFF),
                           fontSize: 16,
-                          fontFamily: 'Inter',
+                          fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w500,
                         ),
                       ),

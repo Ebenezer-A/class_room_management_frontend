@@ -7,17 +7,28 @@ class InstracutorPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Home Page'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return AddInstructorPage();
+      body: Align(
+        alignment: Alignment.bottomRight,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.grey,
+            ),
+            child: IconButton(
+              icon: Icon(Icons.add),
+              color: Colors.white,
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AddInstructorPage();
+                  },
+                );
               },
-            );
-          },
-          child: Text('Add Instructor'),
+            ),
+          ),
         ),
       ),
     );
@@ -68,9 +79,9 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
             Text(
               'Add Instructor',
               style: TextStyle(
-                color: Colors.white,
+                color: Color(0xFF6B4EFF),
                 fontSize: 24,
-                fontFamily: 'Inter',
+                fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w700,
                 height: 1.0,
               ),
@@ -79,7 +90,7 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
             Container(
               width: double.infinity,
               height: 5,
-              decoration: BoxDecoration(color: Color(0xFF2D3032)),
+              decoration: BoxDecoration(color: Color.fromARGB(255, 146, 153, 158)),
             ),
             SizedBox(height: 16),
             TextField(
@@ -89,7 +100,7 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
                 hintStyle: TextStyle(
                   color: Color(0xA3090A0A),
                   fontSize: 16,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
                   height: 0.06,
                 ),
@@ -111,7 +122,7 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
                 hintStyle: TextStyle(
                   color: Color(0xA3090A0A),
                   fontSize: 16,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
                   height: 0.06,
                 ),
@@ -133,7 +144,7 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
                 hintStyle: TextStyle(
                   color: Color(0xA3090A0A),
                   fontSize: 16,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
                   height: 0.06,
                 ),
@@ -155,7 +166,7 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
                 hintStyle: TextStyle(
                   color: Color(0xA3090A0A),
                   fontSize: 16,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
                   height: 0.06,
                 ),
@@ -177,7 +188,7 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
                 hintStyle: TextStyle(
                   color: Color(0xA3090A0A),
                   fontSize: 16,
-                  fontFamily: 'Inter',
+                  fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
                   height: 0.06,
                 ),
@@ -205,7 +216,7 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w500,
                       height: 0.06,
                     ),
@@ -229,7 +240,7 @@ class _AddInstructorPageState extends State<AddInstructorPage> {
                     style: TextStyle(
                       color: Color(0xFF6A4DFF),
                       fontSize: 16,
-                      fontFamily: 'Inter',
+                      fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w500,
                       height: 0.06,
                     ),
